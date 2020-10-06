@@ -1,5 +1,5 @@
 # Install python
-FROM python:3.8
+FROM python:3.8.2
 
 # MAINTAINER name and e-mail address
 MAINTAINER Agnaldo Vilariano <aejvilariano128@gmail.com>
