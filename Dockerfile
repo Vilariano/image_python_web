@@ -1,10 +1,25 @@
 # Install python
-FROM python:3.8
+FROM python:3.10-alpine
 
-# MAINTAINER name and e-mail address
-MAINTAINER Agnaldo Vilariano <aejvilariano128@gmail.com>
+# update apk repo
+RUN echo "http://dl-4.alpinelinux.org/alpine/v3.14/main" >> /etc/apk/repositories && \
+    echo "http://dl-4.alpinelinux.org/alpine/v3.14/community" >> /etc/apk/repositories
 
-RUN pip install bzt
+# install microsoft edge
+RUN apk update
+RUN apt-get install microsoft-edge-stable
 
-ADD docker-entrypoint.sh /
+RUN wget -O /tmp/edgedriver_linux64.zip https://msedgedriver.azureedge.net/109.0.1518.52/edgedriver_linux64.zip \
+    && unzip /tmp/edgedriver_linux64.zip msedgedriver -d /usr/bin/ \
+    && rm /tmp/edgedriver_linux64.zip \
+    && chmod ugo+rx /usr/bin/msedgedriver
+
+# upgrade pip
+RUN pip install --upgrade pip
+
+
+# install selenium
+RUN pip install behave
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
+
