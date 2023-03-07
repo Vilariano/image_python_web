@@ -18,5 +18,5 @@ RUN wget -O /tmp/edgedriver_linux64.zip https://msedgedriver.azureedge.net/109.0
 RUN pip install --upgrade pip
 
 
-RUN chmod +x docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
