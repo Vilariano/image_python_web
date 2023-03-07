@@ -18,8 +18,7 @@ RUN wget -O /tmp/edgedriver_linux64.zip https://msedgedriver.azureedge.net/109.0
 RUN pip install --upgrade pip
 
 
-# install selenium
-RUN pip install behave
+RUN chmod +x docker-entrypoint.sh
 
 ADD docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
