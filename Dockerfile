@@ -21,5 +21,5 @@ RUN pip install --upgrade pip
 # install selenium
 RUN pip install behave
 
+ADD docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
-
