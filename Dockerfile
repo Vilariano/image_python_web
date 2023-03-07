@@ -19,6 +19,4 @@ RUN pip install --upgrade pip
 
 
 RUN chmod +x docker-entrypoint.sh
-
-ADD docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
