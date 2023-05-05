@@ -16,5 +16,13 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 ENV DISPLAY=:99
 
 RUN pip install --upgrade pip
-
+RUN pip install nose
+RUN pip install behave
+RUN pip install selenium
+RUN pip install jsonschema
+RUN pip install behave-html-formatter
+RUN pip install allure-behave
+RUN pip install Faker
+RUN google-chrome --version
+RUN chromedriver --version
 
